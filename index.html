@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfólio - Fábio Leon</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- MENU -->
+    <div class="conteudo-header">
+        <header>
+            <div class="logo">
+                <a href="#"><i class="fa-solid fa-code"></i></a>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home" onclick="seleccionar()">HOME</a></li>
+                    <li><a href="#sobremim" onclick="seleccionar()">SOBRE MIM</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">PORTFÓLIO</a></li>
+                    <li><a href="#contato" onclick="seleccionar()">CONTATO</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+    </div>
+
+    <!-- HOME -->
+    <section id="home" class="home">
+        <div class="conteudo-banner">
+            <div class="hero-img">
+                <img src="./assets/img/fabio.png" alt="">
+            </div>
+            <h1>Fábio Leon</h1>
+            <h2>Desenvolvedor Front-End</h2>
+            <div class="redes">
+                <a href="https://www.linkedin.com/in/fb-leon/" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/fabioleon10" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a>
+                <a href="https://steamcommunity.com/profiles/76561199077155922/" target="_blank" title="Steam"><i class="fa-brands fa-steam"></i></a>
+                <a href="mailto:fsleon93@gmail.com" title="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+
+    <section id="sobremim" class="sobremim">
+        <div class="conteudo-sobremim">
+            <h2>Sobre Mim</h2>
+            <p>Desenvolvedor front-end apaixonado por tecnologia e programação, focado em desenvolver interfaces
+            responsivas e intuitivas para os usuários. Possuo experiência em HTML, CSS e JavaScript.<br> Atualmente, estou cursando "Sistemas Para a Internet" na
+            FIAP, buscando aprimorar minhas habilidades, soft skills e conhecimentos técnicos. Em breve, pretendo embarcar em uma jornada de
+            aprendizado em REACT, com o objetivo de construir aplicações web cada vez mais modernas e dinâmicas. Estou animado para aprender cada vez mais sobre programação e colocar em prática tudo o que aprendo. Espero poder
+            colaborar em seus projetos.</p>
+
+
+            <!-- DADOS PESSOAIS -->
+
+            <div class="fila">
+                <div class="col">
+                    <h3>Dados Pessoais</h3>
+                    <ul>
+                        <li>
+                            <strong>Aniversário</strong>
+                            23-07-1993
+                        </li>
+                        <li>
+                            <strong>E-mail</strong>
+                            fsleon93@gmail.com
+                        </li>
+                        <li>
+                            <strong>Localidade</strong>
+                            São Paulo, Brasil
+                        </li>
+                        <li>
+                            <strong>Cargo Atual</strong>
+                            <span> DESENVOLVEDOR FRONT-END</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <!-- INTERESSES -->
+
+                <div class="col">
+                    <h3>Interesses</h3>
+                    <div class="conteudo-section">
+                        <div class="interes">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span>FRONT-END</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>JOGOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>MÚSICA</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-futbol"></i>
+                            <span>ESPORTES</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-plane"></i>
+                            <span>VIAJAR</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-car"></i>
+                            <span>CARROS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-clapperboard"></i>
+                            <span>FILMES</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span>YOUTUBE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="baixarCV">
+                <a href="https://drive.google.com/file/d/1gd2J95b4FeDzlpVq5NU5YFwz1zptjgCR/view?usp=drive_link" target="_blank">Baixar CV <i class="fa-solid fa-download"></i></a>
+                <span class="overlay"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section id="portfolio" class="portfolio">
+        <div class="conteudo-section">
+            <h2>PORTFÓLIO</h2>
+            <div class="galeria">
+                <div class="projeto">
+                    <img src="/assets/img/p1-sneackers.png" alt="">
+                    <div class="overlay">
+                        <h3>Sneackers Store</h3>
+                        <p>HTML/CSS/JS</p>
+                        <div class="icon-projects">
+                            <a href="https://github.com/fabioleon10/.sneackers" target="_blank" title="Repositório"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://sneackerstore.netlify.app/ " target="_blank" title="Deploy"><i class="fa-regular fa-window-maximize"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img src="/assets/img/p2-gymfitness.png" alt="">
+                    <div class="overlay">
+                        <h3>GYM Fitness</h3>
+                        <p>HTML/CSS/JS</p>
+                        <div class="icon-projects">
+                            <a href="https://github.com/fabioleon10/GymWebsite" target="_blank" title="Repositório"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://gymfitness10.netlify.app/ " target="_blank" title="Deploy"><i class="fa-regular fa-window-maximize"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img src="/assets/img/p3-coffeeshop.png" alt="">
+                    <div class="overlay">
+                        <h3>Coffee Shop</h3>
+                        <p>HTML/CSS/JS</p>
+                        <div class="icon-projects">
+                            <a href="https://github.com/fabioleon10/CoffeeShop" target="_blank" title="Repositório"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://coffeeshop10.netlify.app/ " target="_blank" title="Deploy"><i class="fa-regular fa-window-maximize"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img src="/assets/img/p4-login.png" alt="">
+                    <div class="overlay">
+                        <h3>Login DarkMode</h3>
+                        <p>HTML/CSS/JS</p>
+                        <div class="icon-projects">
+                            <a href="https://github.com/fabioleon10/Login_DarkMode" target="_blank" title="Repositório"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://logindarkmode.netlify.app/" target="_blank" title="Deploy"><i class="fa-regular fa-window-maximize"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img src="/assets/img/p5-imc.png" alt="">
+                    <div class="overlay">
+                        <h3>IMC CALCULATOR</h3>
+                        <p>HTML/CSS/JS</p>
+                        <div class="icon-projects">
+                            <a href="https://github.com/fabioleon10/IMC_Calculator" target="_blank" title="Repositório"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://imc-calculator10.netlify.app/" target="_blank" title="Deploy"><i class="fa-regular fa-window-maximize"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img src="/assets/img/p6-vrVirtual.png" alt="">
+                    <div class="overlay">
+                        <h3>VR VIRTUAL</h3>
+                        <p>HTML/CSS</p>
+                        <div class="icon-projects">
+                            <a href="https://github.com/fabioleon10/VR-Virtual" target="_blank" title="Repositório"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://vr-virtual.netlify.app/" target="_blank" title="Deploy"><i class="fa-regular fa-window-maximize"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+        <div class="conteudo-section">
+            <h2>CONTATO</h2>
+            <div class="fila">
+                <!-- Form -->
+                <form action="https://api.staticforms.xyz/submit" class="col" method="post">
+                    <input type="text" name="name" placeholder="Nome" autocomplete="off" required>
+                    <input type="number" placeholder="Telefone" autocomplete="off" required>
+                    <input type="e-mail" name="email" placeholder="e-mail" autocomplete="off" required>
+                    <input type="text" placeholder="Assunto" autocomplete="off" required>
+                    <textarea name="message" cols="30" rows="10" placeholder="Mensagem" required></textarea>
+                    <button type="submit">
+                        Enviar Mensagem <i class="fa-solid fa-paper-plane"></i>
+                        <span class="overlay"></span>
+                    </button>
+                    <input type="hidden" name="accessKey" value="5b3f5c21-e54a-4803-9d8a-d448aec69690">
+                    <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/obrigado.html">
+                </form>
+            </div>        
+        </div>    
+
+
+        <!-- FOOTER  -->
+
+
+    <footer>
+        <a href="#home" class="footerHome">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <div class="redes">
+            <a href="https://www.linkedin.com/in/fb-leon/" target="_blank" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/fabioleon10" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a>
+            <a href="https://steamcommunity.com/profiles/76561199077155922/" target="_blank" title="Steam"><i class="fa-brands fa-steam"></i></a>
+            <a href="mailto:fsleon93@gmail.com" title="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p>&copy; Fábio Leon 2023.</p>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>   
+</body>
+</html>
