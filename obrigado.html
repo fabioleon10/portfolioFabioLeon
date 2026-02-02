@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Obrigado! - Fábio Leon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+
+        :root {
+            --bg-primary: #0a0f14;
+            --bg-secondary: #111a22;
+            --cyan-primary: #00d4ff;
+            --cyan-secondary: #00b8e6;
+            --cyan-glow: rgba(0, 212, 255, 0.3);
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Work Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            flex-direction: column;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de brilho de fundo */
+        .main::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Ícone decorativo */
+        .icon-decoration {
+            font-size: 80px;
+            color: var(--cyan-primary);
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .text {
+            font-family: 'Righteous', cursive;
+            font-size: 48px;
+            color: var(--cyan-primary);
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 20px var(--cyan-glow);
+            position: relative;
+        }
+
+        .text::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyan-primary), transparent);
+            margin: 15px auto 0;
+        }
+
+        .paragrafo {
+            color: var(--text-gray);
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .obgbtn {
+            cursor: pointer;
+            background-color: transparent;
+            border: 2px solid var(--cyan-primary);
+            border-radius: 8px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px auto;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--cyan-primary);
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--cyan-glow);
+        }
+
+        .obgbtn .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan-primary), var(--cyan-secondary));
+            z-index: -1;
+            transition: 0.4s ease;
+            border-radius: 6px;
+        }
+
+        .obgbtn a {
+            color: var(--cyan-primary);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .obgbtn:hover {
+            box-shadow: 0 0 30px var(--cyan-glow);
+            transform: translateY(-2px);
+        }
+
+        .obgbtn:hover .overlay {
+            width: 100%;
+        }
+
+        .obgbtn:hover a {
+            color: var(--bg-primary);
+        }
+
+        /* Card container */
+        .card-container {
+            background: rgba(17, 26, 34, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            padding: 60px 80px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .text {
+                font-size: 36px;
+            }
+            
+            .paragrafo {
+                font-size: 16px;
+            }
+            
+            .obgbtn {
+                font-size: 14px;
+                padding: 12px 24px;
+            }
+            
+            .card-container {
+                padding: 40px 30px;
+                margin: 0 15px;
+            }
+            
+            .icon-decoration {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text {
+                font-size: 28px;
+            }
+            
+            .paragrafo {
+                font-size: 14px;
+            }
+            
+            .obgbtn {
+                font-size: 12px;
+                padding: 10px 20px;
+            }
+            
+            .card-container {
+                padding: 30px 20px;
+            }
+            
+            .icon-decoration {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body class="main">
+    <div class="card-container">
+        <div class="icon-decoration">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h1 class="text">Obrigado pela mensagem!</h1>
+        <p class="paragrafo">Em breve entrarei em contato ;)</p>
+        <div class="obgbtn">
+            <a href="./index.html">
+                <i class="fa-solid fa-arrow-left"></i> Voltar para o site
+            </a>
+            <span class="overlay"></span>
+        </div>
+    </div>
+</body>
+</html>
