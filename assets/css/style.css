@@ -101,6 +101,7 @@ html {
     url(/assets/img/bannerBG.jpg);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     min-height: 100vh;
     color: #fff;
     display: flex;
