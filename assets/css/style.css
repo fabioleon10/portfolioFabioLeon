@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 
+:root {
+    --primary: #00D4FF;
+    --secondary: #7C3AED;
+    --primary-glow: rgba(0, 212, 255, 0.4);
+    --secondary-glow: rgba(124, 58, 237, 0.4);
+    --gradient: linear-gradient(135deg, #00D4FF 0%, #7C3AED 100%);
+    --gradient-hover: linear-gradient(135deg, #7C3AED 0%, #00D4FF 100%);
+    --dark-bg: #0a0e12;
+    --card-bg: #12181f;
+    --text: #fff;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--secondary-glow); }
+    50% { box-shadow: 0 0 30px var(--primary-glow), 0 0 60px var(--secondary-glow); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Work Sans';
@@ -16,28 +44,32 @@ html {
 .skill-highlight {
     display: inline-block;
     padding: 2px 6px;
-    border: 1px solid #1CB698;
+    border: 1px solid var(--primary);
     border-radius: 4px;
-    color: #1CB698;
+    color: var(--primary);
     font-weight: 500;
-    background-color: rgba(28, 182, 152, 0.1);
+    background-color: rgba(0, 212, 255, 0.1);
     transition: all 0.3s ease;
 }
 
 .skill-highlight:hover {
-    background-color: #1CB698;
+    background: var(--gradient);
     color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 /* MENU */
 .conteudo-header {
-    background: #1e2326;
+    background: rgba(10, 14, 18, 0.95);
+    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 99;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 .conteudo-header header {
@@ -52,13 +84,18 @@ html {
 .conteudo-header header .logo a {
     font-family: 'Righteous';
     font-size: 36px;
-    color: #1CB698;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
 .conteudo-header header .logo a:hover {
     transform: scale(1.1);
+    filter: drop-shadow(0 0 20px var(--primary-glow));
 }
 
 .conteudo-header header ul {
@@ -77,27 +114,53 @@ html {
 }
 
 .conteudo-header header nav ul li a:hover {
-    color: #1CB698;
-    background-color: rgba(28, 182, 152, 0.1);
+    color: var(--primary);
+    background-color: rgba(0, 212, 255, 0.1);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Link ativo na navbar */
+.conteudo-header header nav ul li a.active {
+    color: var(--primary);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.conteudo-header header nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--gradient);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
 .nav-responsive {
-    background-color: #1CB698;
+    background: var(--gradient);
     color: #fff;
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     display: none;
     transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .nav-responsive:hover {
-    background-color: #159a7f;
+    background: var(--gradient-hover);
+    box-shadow: 0 0 25px var(--primary-glow);
 }
 
 /* HOME */
 .home {
-    background: linear-gradient(to top, rgba(17, 19, 20, 0.8), rgb(16, 17, 17)),
+    background: linear-gradient(to top, rgba(10, 14, 18, 0.95), rgba(10, 14, 18, 0.85)),
     url(/assets/img/bannerBG.jpg);
     background-size: cover;
     background-position: center;
@@ -107,39 +170,64 @@ html {
     display: flex;
     align-items: center;
     padding: 80px 20px 20px;
+    position: relative;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .home .conteudo-banner {
     padding: 40px;
-    background-color: rgba(37, 42, 46, 0.95);
+    background: rgba(18, 24, 31, 0.9);
     max-width: 400px;
     margin: auto;
     text-align: center;
     border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    position: relative;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
 }
 
 .home .conteudo-banner img {
-    border: 5px solid #1CB698;
+    border: 4px solid transparent;
+    background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                var(--gradient) border-box;
     display: block;
     width: 150px;
     height: 150px;
     margin: 0 auto 30px;
     border-radius: 50%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px var(--primary-glow);
 }
 
 .home .conteudo-banner img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 50px var(--primary-glow), 0 0 80px var(--secondary-glow);
 }
 
 .home .conteudo-banner h1 {
     font-size: 2.5rem;
     font-family: 'Righteous';
     margin-bottom: 10px;
-    color: #1CB698;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
 .home .conteudo-banner h2 {
@@ -178,7 +266,7 @@ html {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(28, 182, 152, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
     transition: left 0.5s ease;
 }
 
@@ -187,16 +275,29 @@ html {
 }
 
 .home .conteudo-banner .redes a:hover {
-    background-color: #1CB698;
-    border-color: #1CB698;
+    background: var(--gradient);
+    border-color: transparent;
     transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--primary-glow);
 }
 
 /* SOBRE MIM */
 .sobremim {
-    background-color: #1e2326;
+    background-color: var(--dark-bg);
     color: #fff;
     padding: 80px 20px;
+    position: relative;
+}
+
+.sobremim::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .sobremim .conteudo-sobremim {
@@ -209,7 +310,11 @@ html {
     font-family: 'Righteous';
     text-align: center;
     margin-bottom: 40px;
-    color: #1CB698;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px var(--primary-glow));
 }
 
 .sobremim .conteudo-sobremim p {
@@ -230,7 +335,10 @@ html {
     font-size: 1.8rem;
     font-family: 'Righteous';
     margin-bottom: 25px;
-    color: #1CB698;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .sobremim .fila .col ul {
@@ -244,17 +352,19 @@ html {
 
 .sobremim .fila .col ul li strong {
     display: inline-block;
-    color: #1CB698;
+    color: var(--primary);
     width: 140px;
     font-weight: 600;
+    text-shadow: 0 0 10px var(--primary-glow);
 }
 
 .sobremim .fila .col ul li span {
-    background-color: #1CB698;
+    background: var(--gradient);
     padding: 4px 8px;
     font-weight: bold;
     border-radius: 5px;
     color: #fff;
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
 .sobremim .fila .col .conteudo-section {
@@ -265,7 +375,7 @@ html {
 
 .sobremim .fila .col .conteudo-section .interes {
     height: 100px;
-    background-color: #252A2E;
+    background-color: var(--card-bg);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -273,7 +383,7 @@ html {
     justify-content: center;
     transition: all 0.3s ease;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 2px solid rgba(0, 212, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -285,7 +395,7 @@ html {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(28, 182, 152, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
     transition: left 0.5s ease;
 }
 
@@ -294,17 +404,18 @@ html {
 }
 
 .sobremim .fila .col .conteudo-section .interes:hover {
-    background-color: #1CB698;
-    border-color: #1CB698;
+    background: var(--gradient);
+    border-color: transparent;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(28, 182, 152, 0.3);
+    box-shadow: 0 5px 25px var(--primary-glow), 0 10px 40px var(--secondary-glow);
 }
 
 .sobremim .fila .col .conteudo-section .interes i {
     font-size: 28px;
     margin-bottom: 8px;
-    color: #1CB698;
-    transition: color 0.3s ease;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px var(--primary-glow));
 }
 
 .sobremim .fila .col .conteudo-section .interes:hover i {
@@ -331,18 +442,19 @@ html {
 .baixarCV {
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #1CB698;
+    border: 2px solid var(--primary);
     width: fit-content;
     display: block;
     margin: 40px auto 0;
     padding: 12px 30px;
     font-size: 16px;
-    color: #1CB698;
+    color: var(--primary);
     position: relative;
     z-index: 10;
     border-radius: 5px;
     transition: all 0.3s ease;
     overflow: hidden;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .baixarCV a {
@@ -359,7 +471,7 @@ html {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #1CB698;
+    background: var(--gradient);
     z-index: -1;
     transition: width 0.3s ease;
 }
@@ -370,13 +482,27 @@ html {
 
 .baixarCV:hover {
     color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 30px var(--primary-glow), 0 0 50px var(--secondary-glow);
 }
 
 /* PORTFOLIO */
 .portfolio {
-    background-color: #252A2E;
+    background-color: var(--card-bg);
     color: #fff;
     padding: 80px 20px;
+    position: relative;
+}
+
+.portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .portfolio .conteudo-section {
@@ -389,7 +515,11 @@ html {
     font-family: 'Righteous';
     text-align: center;
     margin-bottom: 50px;
-    color: #1CB698;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px var(--primary-glow));
 }
 
 .portfolio .galeria {
@@ -423,14 +553,14 @@ html {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: linear-gradient(rgba(28, 182, 152, 0.9), rgba(28, 182, 152, 0.9));
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: opacity 0.3s ease;
     opacity: 0;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(5px);
 }
 
 .portfolio .galeria .projeto .overlay h3 {
@@ -514,8 +644,9 @@ html {
 
 /* Estilos específicos para Deploy */
 .icon-projects a[title="Deploy"]:hover {
-    background-color: #1CB698;
-    border-color: #1CB698;
+    background: var(--gradient);
+    border-color: transparent;
+    box-shadow: 0 0 20px var(--primary-glow);
 }
 
 .icon-projects a[title="Deploy"]:hover i {
@@ -525,11 +656,23 @@ html {
 /* CONTATO */
 .contato {
     background-image: url(/assets/img/contact_bg\ \(1\).png);
-    background-color: #1e2326;
+    background-color: var(--dark-bg);
     background-size: cover;
     background-position: center;
     color: #fff;
     padding: 80px 20px;
+    position: relative;
+}
+
+.contato::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .contato .conteudo-section {
@@ -542,7 +685,11 @@ html {
     font-family: 'Righteous';
     text-align: center;
     margin-bottom: 50px;
-    color: #1CB698;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px var(--primary-glow));
 }
 
 .contato .fila {
@@ -561,36 +708,38 @@ html {
     display: block;
     width: 100%;
     padding: 15px;
-    border: 2px solid #252A2E;
+    border: 2px solid rgba(0, 212, 255, 0.1);
     border-radius: 5px;
     margin-bottom: 20px;
-    background-color: #252A2E;
+    background-color: var(--card-bg);
     color: #fff;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .contato .col input:focus,
 .contato .col textarea:focus {
     outline: none;
-    border-color: #1CB698;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .contato button {
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #1CB698;
+    border: 2px solid var(--primary);
     width: fit-content;
     display: block;
     margin: 20px auto;
     padding: 12px 30px;
     font-size: 16px;
-    color: #1CB698;
+    color: var(--primary);
     position: relative;
     z-index: 10;
     border-radius: 5px;
     transition: all 0.3s ease;
     overflow: hidden;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .contato button .overlay {
@@ -599,7 +748,7 @@ html {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #1CB698;
+    background: var(--gradient);
     z-index: -1;
     transition: width 0.3s ease;
 }
@@ -610,6 +759,8 @@ html {
 
 .contato button:hover {
     color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 30px var(--primary-glow), 0 0 50px var(--secondary-glow);
 }
 
 .contato .col img {
@@ -637,18 +788,20 @@ html {
 }
 
 .contato .col .info ul li i {
-    color: #1CB698;
+    color: var(--primary);
     margin-right: 15px;
     font-size: 20px;
     width: 25px;
+    filter: drop-shadow(0 0 5px var(--primary-glow));
 }
 
 /* FOOTER */
 footer {
-    background-color: #252A2E;
+    background-color: var(--dark-bg);
     color: #fff;
     padding: 30px 0;
     text-align: center;
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 footer .redes {
@@ -679,7 +832,7 @@ footer .redes a::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(28, 182, 152, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
     transition: left 0.5s ease;
 }
 
@@ -688,9 +841,10 @@ footer .redes a:hover::before {
 }
 
 footer .redes a:hover {
-    background-color: #1CB698;
-    border-color: #1CB698;
+    background: var(--gradient);
+    border-color: transparent;
     transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--primary-glow);
 }
 
 footer .footerHome {
@@ -699,7 +853,7 @@ footer .footerHome {
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: #1CB698;
+    background: var(--gradient);
     color: #fff;
     position: absolute;
     left: 50%;
@@ -709,11 +863,13 @@ footer .footerHome {
     font-size: 18px;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 0 20px var(--primary-glow);
 }
 
 footer .footerHome:hover {
-    background-color: #159a7f;
+    background: var(--gradient-hover);
     transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 35px var(--primary-glow), 0 0 50px var(--secondary-glow);
 }
 
 footer p {
@@ -769,12 +925,12 @@ input[type=number] {
         position: absolute;
         right: 20px;
         top: 70px;
-        background: linear-gradient(135deg, #252A2E 0%, #1e2326 100%);
+        background: linear-gradient(135deg, var(--card-bg) 0%, var(--dark-bg) 100%);
         width: 220px;
         border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 30px var(--primary-glow);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(28, 182, 152, 0.2);
+        border: 1px solid rgba(0, 212, 255, 0.2);
         animation: slideIn 0.3s ease-out;
         z-index: 1000;
     }
@@ -799,7 +955,7 @@ input[type=number] {
         height: 0;
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
-        border-bottom: 8px solid #252A2E;
+        border-bottom: 8px solid var(--card-bg);
     }
     
     nav.responsive ul {
@@ -818,7 +974,7 @@ input[type=number] {
     }
     
     nav.responsive ul li:hover {
-        background-color: rgba(28, 182, 152, 0.1);
+        background-color: rgba(0, 212, 255, 0.1);
     }
     
     nav.responsive ul li a {
@@ -838,8 +994,9 @@ input[type=number] {
         transform: translateY(-50%);
         width: 3px;
         height: 0;
-        background-color: #1CB698;
+        background: var(--gradient);
         transition: height 0.2s ease;
+        box-shadow: 0 0 10px var(--primary-glow);
     }
     
     nav.responsive ul li a:hover::before {
@@ -847,8 +1004,20 @@ input[type=number] {
     }
     
     nav.responsive ul li a:hover {
-        color: #1CB698;
+        color: var(--primary);
         padding-left: 35px;
+        text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    /* Link ativo no menu mobile */
+    nav.responsive ul li a.active {
+        color: var(--primary);
+        padding-left: 35px;
+        text-shadow: 0 0 10px var(--primary-glow);
+    }
+    
+    nav.responsive ul li a.active::before {
+        height: 60%;
     }
 
     /* HOME */
