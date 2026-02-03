@@ -200,23 +200,35 @@ html {
     animation: float 6s ease-in-out infinite;
 }
 
-.home .conteudo-banner img {
+.home .conteudo-banner .hero-img {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
     border: 4px solid transparent;
     background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
                 var(--gradient) border-box;
-    display: block;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: all 0.3s ease;
     box-shadow: 0 0 30px var(--primary-glow);
+    transition: all 0.3s ease;
 }
 
-.home .conteudo-banner img:hover {
-    transform: scale(1.05);
+.home .conteudo-banner .hero-img:hover {
     box-shadow: 0 0 50px var(--primary-glow), 0 0 80px var(--secondary-glow);
+}
+
+.home .conteudo-banner .hero-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.8) translateY(5%);
+    transition: all 0.3s ease;
+}
+
+.home .conteudo-banner .hero-img:hover img {
+    transform: scale(1.55) translateY(5%);
 }
 
 .home .conteudo-banner h1 {
