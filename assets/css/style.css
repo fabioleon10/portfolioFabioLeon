@@ -1175,3 +1175,18 @@ input[type=number] {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Ajuste do overlay do Sneackers Store na versão mobile */
+@media (max-width: 768px) {
+    .projeto .overlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px; /* Ajuste para alinhar os ícones */
+    }
+
+    .projeto .icon-projects {
+        margin-top: 10px; /* Garantir espaçamento adequado */
+    }
+}

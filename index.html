@@ -56,7 +56,7 @@
 
     <section id="sobremim" class="sobremim">
         <div class="conteudo-sobremim">
-            <h2>Sobre Mim</h2>
+            <h2>SOBRE MIM</h2>
             <p><strong>Desenvolvedor Front-End</strong> com 4 anos de experiência transformando requisitos de negócio em interfaces rápidas, modernas e escaláveis. Especialista em <strong>React.js</strong>, <strong>TypeScript</strong> e <strong>JavaScript</strong>, atuo na construção de aplicações web com foco em <strong>performance</strong>, <strong>usabilidade</strong> e <strong>qualidade de código</strong>.<br><br>
 
             Tenho experiência trabalhando com <strong>APIs REST</strong>, automações com <strong>Node.js</strong> e colaboração direta com <strong>design</strong> e <strong>produto</strong> para entregar soluções eficientes para clientes de médio e grande porte.<br><br>
@@ -237,18 +237,16 @@
             <h2>CONTATO</h2>
             <div class="fila">
                 <!-- Form -->
-                <form action="https://api.staticforms.xyz/submit" class="col" method="post">
+                <form action="mailto:fsleon93@gmail.com" method="post" enctype="text/plain" class="col">
                     <input type="text" name="name" placeholder="Nome" autocomplete="off" required>
-                    <input type="number" placeholder="Telefone" autocomplete="off" required>
-                    <input type="e-mail" name="email" placeholder="e-mail" autocomplete="off" required>
-                    <input type="text" placeholder="Assunto" autocomplete="off" required>
+                    <input type="number" name="phone" placeholder="Telefone" autocomplete="off" required>
+                    <input type="email" name="email" placeholder="E-mail" autocomplete="off" required>
+                    <input type="text" name="subject" placeholder="Assunto" autocomplete="off" required>
                     <textarea name="message" cols="30" rows="10" placeholder="Mensagem" required></textarea>
                     <button type="submit">
                         Enviar Mensagem <i class="fa-solid fa-paper-plane"></i>
                         <span class="overlay"></span>
                     </button>
-                    <input type="hidden" name="accessKey" value="5b3f5n21-e54a-4803-9d8a-d448aec69690">
-                    <input type="hidden" name="redirectTo" value="https://fabioleondev.netlify.app/obrigado.html">
                 </form>
             </div>        
         </div>    
@@ -270,6 +268,7 @@
         <p>&copy; Fábio Leon 2026.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="./assets/js/script.js"></script>   
 </body>
 </html>
