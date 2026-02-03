@@ -541,21 +541,25 @@ html {
 }
 
 .portfolio .galeria .projeto {
+    width: 100%;
+    height: 200px; /* Define altura consistente para todos os cards */
     position: relative;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    border: 3px solid var(--primary); /* Adiciona borda azul */
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .portfolio .galeria .projeto:hover {
     transform: translateY(-5px);
+    border-color: var(--secondary); /* Altera a cor da borda ao passar o mouse */
 }
 
 .portfolio .galeria .projeto img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 100%; /* Ajusta para ocupar todo o card */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
     display: block;
 }
 

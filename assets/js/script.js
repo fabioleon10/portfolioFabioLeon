@@ -1,18 +1,29 @@
 let menuVisible = false;
 //Ocultar / Mostrar Menu
 function mostrarOcultarMenu(){
+    const nav = document.getElementById("nav");
+    const menuIcon = document.querySelector(".nav-responsive i");
+
     if(menuVisible){
-        document.getElementById("nav").classList ="";
+        nav.classList.remove("responsive");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
         menuVisible = false;
     }else{
-        document.getElementById("nav").classList ="responsive";
+        nav.classList.add("responsive");
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
         menuVisible = true;
     }
 }
 
 function seleccionar(){
-    //Oculta menu ao selecionar uma opção
-    document.getElementById("nav").classList = "";
+    const nav = document.getElementById("nav");
+    const menuIcon = document.querySelector(".nav-responsive i");
+
+    nav.classList.remove("responsive");
+    menuIcon.classList.remove("fa-times");
+    menuIcon.classList.add("fa-bars");
     menuVisible = false;
 }
 
